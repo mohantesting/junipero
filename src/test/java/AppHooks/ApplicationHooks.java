@@ -5,13 +5,17 @@ import java.util.Properties;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 import com.qa.factory.DriverFactory;
 
 import Utilities.ConfigReader;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+
 
 public class ApplicationHooks {
 	
@@ -30,7 +34,7 @@ public class ApplicationHooks {
 		
 	}
 	
-	@Before
+	@Before(order=1)
 	public void launchBrowser() {
 		String browserName = prop.getProperty("browser");
 		driverfactory = new DriverFactory();
@@ -38,7 +42,7 @@ public class ApplicationHooks {
 		
 		
 	}
-	@After(order=0)
+	/*@After(order=0)
 	public void quitBrowser() {
 		driver.quit();
 		}
@@ -51,12 +55,13 @@ public class ApplicationHooks {
 		byte[] sourcePath =((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 		scenario.attach(sourcePath, "image/png", screenshotName);
 		
-	}
+	}*/
 	
 	
 	}
+
 	
 	
 	
 
-}
+
