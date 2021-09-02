@@ -29,7 +29,7 @@ public class DriverFactory {
 	return getDriver();
 	}
 	
-	
+	//get
 	public static WebDriver getDriver() {
 		return tlDriver.get();
 	}
